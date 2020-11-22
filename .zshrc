@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin
 
 # I primarily added this so I can use the conda command from the terminal
 # There's probably a cleaner way to do this than importing the whole
 # bash_profile
-#source ~/.bash_profile
+source ~/.config/.bash_profile
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/brandongoldney/.oh-my-zsh"
@@ -123,21 +123,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/brandongoldney/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/brandongoldney/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/brandongoldney/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/brandongoldney/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
