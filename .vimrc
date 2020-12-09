@@ -1,5 +1,5 @@
 " ===================================================================================
-                           Vim Core Configuration 
+"                           Vim Core Configuration 
 " ===================================================================================
 " set is for setting options
 set guifont=Menlo:h14               " for the GUI version of Vim
@@ -38,7 +38,7 @@ autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
 
 
 " ===================================================================================
-                           Vim-Plug Settings
+"                           Vim-Plug Settings
 " ===================================================================================
 " Plug 'foo/bar' expands to Plug 'https://github.com/foo/bar.git' as documented
 call plug#begin('~/.vim/plugged/') " vim-plug
@@ -54,18 +54,23 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim' 
 Plug 'ap/vim-css-color'
+Plug 'arcticicestudio/nord-vim'
 " Finish initialization of vim-plug
 call plug#end()
 
 
 " ===================================================================================
-                         Themes and Color Formatting 
+"                         Themes and Color Formatting 
 " ===================================================================================
-colorscheme murphy           " change colorscheme of VIM
-let g:ZSH_THEME='agnoster'   " update theme for oh-my-zsh
+set termguicolors
+let g:nord_italic = 1  	     " enable italics
+let g:nord_underline = 1     " enable underlining
+colorscheme nord             " select color scheme
+
+" let g:ZSH_THEME='agnoster'   " update theme for oh-my-zsh
 
 " ===================================================================================
-                          File Formatting 
+"                          File Formatting 
 " ===================================================================================
 au BufNewFile,BufRead *.py   " set defualt PEP8 formatting
     \ set tabstop=4 |
@@ -105,7 +110,7 @@ au BufNewFile,BufRead *.h    " default c++ header file settings
 
 
 " ===================================================================================
-                          Miscellaneous 
+"                          Miscellaneous 
 " ===================================================================================
 " Execute python file with F9 instead of typing \":w !python\"
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
