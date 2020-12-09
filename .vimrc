@@ -1,30 +1,49 @@
-set guifont=Menlo:h14
-set number " absolute line number
-set relativenumber 
-set nowrap "turn off word wrap
+" ===================================================================================
+                           Vim Core Configuration 
+" ===================================================================================
+" set is for setting options
+set guifont=Menlo:h14               " for the GUI version of Vim
+set number                          " absolute line number
+set relativenumber                  " set relative line numbers
+set nowrap                          " turn off word wrap
+set autochdir                       " always change to the current file's directory
 
-let g:vimtex_view_method= 'zathura'
-let g:tex_flavor = 'latex'
+" let is for assigning a value to a variable
 
-" This sets Vim to always change to the current file's directory
-:set autochdir
+" gitgutter: shows a git diff in the sign column. It shows which lines have been added, 
+" modified, or removed
+let g:gitgutter_enabled=1 " Always enable git gutter
+highlight GitGutterAdd guifg=#009900 ctermfg=Green
+highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
+highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 
-" Show hidden files in NERD Tree
-let NERDTreeShowHidden=1
+" vimtex: is a modern Vim and neovim filetype and syntax plugin for LaTeX files.
+let g:vimtex_view_method= 'zathura' 
+let g:tex_flavor = 'latex'           
+
+"Debugger options
+let g:termdebug_popup = 0
+let g:termdebug_wide = 163
+
+let NERDTreeShowHidden=1             " Show hidden files in NERD Tree
+" always open NERDTree in the documents folder
 autocmd VimEnter * NERDTree /Users/brandongoldney/Documents/
 
-" Enable autocomplete for html
+" enable autocomplete for html
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 set omnifunc=syntaxcomplete#Complete
 
-"Open all .cpp files with the template from .vim/templates
+" open all .cpp files with the template from .vim/templates
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
 
 
+" ===================================================================================
+                           Vim-Plug Settings
+" ===================================================================================
 " Plug 'foo/bar' expands to Plug 'https://github.com/foo/bar.git' as documented
 call plug#begin('~/.vim/plugged/') " vim-plug
 Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " PDF live preview, mostly for Latex files
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " live preview,for Latex files
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter'
@@ -34,23 +53,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim' 
+Plug 'ap/vim-css-color'
+" Finish initialization of vim-plug
 call plug#end()
 
-let g:ZSH_THEME='agnoster'
 
-" Git Gutter
-let g:gitgutter_enabled=1 " Always enable git gutter
-highlight GitGutterAdd guifg=#009900 ctermfg=Green
-highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
-highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
+" ===================================================================================
+                         Themes and Color Formatting 
+" ===================================================================================
+colorscheme murphy           " change colorscheme of VIM
+let g:ZSH_THEME='agnoster'   " update theme for oh-my-zsh
 
-
-"Debugger options
-let g:termdebug_popup = 0
-let g:termdebug_wide = 163
-
-"Set defualt PEP8 formatting
-au BufNewFile,BufRead *.py
+" ===================================================================================
+                          File Formatting 
+" ===================================================================================
+au BufNewFile,BufRead *.py   " set defualt PEP8 formatting
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -59,7 +76,7 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix 
 
-au BufNewFile,BufRead *.cpp
+au BufNewFile,BufRead *.tex  " default latex formatting
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -68,7 +85,7 @@ au BufNewFile,BufRead *.cpp
     \ set autoindent |
     \ set fileformat=unix 
 
-au BufNewFile,BufRead *.tex
+au BufNewFile,BufRead *.cpp  " default c++ formatting
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -77,7 +94,7 @@ au BufNewFile,BufRead *.tex
     \ set autoindent |
     \ set fileformat=unix 
 
-au BufNewFile,BufRead *.h
+au BufNewFile,BufRead *.h    " default c++ header file settings
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -87,7 +104,9 @@ au BufNewFile,BufRead *.h
     \ set fileformat=unix
 
 
-
+" ===================================================================================
+                          Miscellaneous 
+" ===================================================================================
 " Execute python file with F9 instead of typing \":w !python\"
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -119,9 +138,6 @@ function! s:check_back_space() abort
 endfunction
 
 
-" Change colorscheme of VIM
-colorscheme murphy
-
 " Switch to specific tab numbers with Command-number
 noremap <D-1> :tabn 1<CR>
 noremap <D-2> :tabn 2<CR>
@@ -132,9 +148,7 @@ noremap <D-6> :tabn 6<CR>
 noremap <D-7> :tabn 7<CR>
 noremap <D-8> :tabn 8<CR>
 noremap <D-9> :tabn 9<CR>
-" Command-0 goes to the last tab
-noremap <D-0> :tablast<CR>
+noremap <D-0> :tablast<CR>  " Command-0 goes to the last tab
+
 endif
 filetype plugin indent on
-
-
