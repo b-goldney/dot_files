@@ -7,6 +7,8 @@ set number                          " absolute line number
 set relativenumber                  " set relative line numbers
 set nowrap                          " turn off word wrap
 set autochdir                       " always change to the current file's directory
+set textwidth=80 		    " make it obvious where 80 characters is 
+set colorcolumn=+1                  " (continued from above)
 
 " let is for assigning a value to a variable
 
@@ -36,6 +38,7 @@ set omnifunc=syntaxcomplete#Complete
 " open all .cpp files with the template from .vim/templates
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
 
+filetype plugin indent on
 
 " ===================================================================================
 "                           Vim-Plug Settings
@@ -141,7 +144,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 " Switch to specific tab numbers with Command-number
 noremap <D-1> :tabn 1<CR>
