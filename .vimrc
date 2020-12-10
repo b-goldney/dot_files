@@ -9,6 +9,8 @@ set nowrap                          " turn off word wrap
 set autochdir                       " always change to the current file's directory
 set textwidth=80 		    " make it obvious where 80 characters is 
 set colorcolumn=+1                  " (continued from above)
+set hlsearch 			    " highlight search (highlight matches)
+nnoremap <CR> :noh<CR><CR> 	    " clear search highlighting by hitting return
 
 " let is for assigning a value to a variable
 
@@ -37,8 +39,6 @@ set omnifunc=syntaxcomplete#Complete
 
 " open all .cpp files with the template from .vim/templates
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
-
-filetype plugin indent on
 
 " ===================================================================================
 "                           Vim-Plug Settings
@@ -75,6 +75,8 @@ colorscheme nord             " select color scheme
 " ===================================================================================
 "                          File Formatting 
 " ===================================================================================
+filetype plugin indent on
+
 au BufNewFile,BufRead *.py   " set defualt PEP8 formatting
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -99,8 +101,11 @@ au BufNewFile,BufRead *.cpp  " default c++ formatting
     \ set shiftwidth=4 |
     \ set textwidth=79 |
     \ set expandtab |
-    \ set autoindent |
+    \ set smarttab |
+    \ set cindent |
+    \ set autoindent
     \ set fileformat=unix 
+    \ filetype indent off
 
 au BufNewFile,BufRead *.h    " default c++ header file settings
     \ set tabstop=4 |
@@ -110,7 +115,6 @@ au BufNewFile,BufRead *.h    " default c++ header file settings
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
-
 
 " ===================================================================================
 "                          Miscellaneous 
@@ -158,4 +162,3 @@ noremap <D-9> :tabn 9<CR>
 noremap <D-0> :tablast<CR>  " Command-0 goes to the last tab
 
 endif
-filetype plugin indent on
