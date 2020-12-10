@@ -75,7 +75,7 @@ colorscheme nord             " select color scheme
 " ===================================================================================
 "                          File Formatting 
 " ===================================================================================
-filetype plugin indent on
+ filetype plugin indent on
 
 au BufNewFile,BufRead *.py   " set defualt PEP8 formatting
     \ set tabstop=4 |
@@ -101,11 +101,10 @@ au BufNewFile,BufRead *.cpp  " default c++ formatting
     \ set shiftwidth=4 |
     \ set textwidth=79 |
     \ set expandtab |
-    \ set smarttab |
+    \ set fileformat=unix |
     \ set cindent |
     \ set autoindent
-    \ set fileformat=unix 
-    \ filetype indent off
+
 
 au BufNewFile,BufRead *.h    " default c++ header file settings
     \ set tabstop=4 |
