@@ -39,6 +39,7 @@ set omnifunc=syntaxcomplete#Complete
 
 " open all .cpp files with the template from .vim/templates
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
+autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
 
 " ===================================================================================
 "                           Vim-Plug Settings
@@ -53,8 +54,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'robbyrussell/oh-my-zsh'
 Plug 'vim-airline/vim-airline'
-Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'dense-analysis/ale'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim' 
 Plug 'ap/vim-css-color'
 Plug 'arcticicestudio/nord-vim'
@@ -77,43 +78,52 @@ colorscheme nord             " select color scheme
 " ===================================================================================
  filetype plugin indent on
 
-au BufNewFile,BufRead *.py   " set defualt PEP8 formatting
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix 
-
-au BufNewFile,BufRead *.tex  " default latex formatting
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix 
-
-au BufNewFile,BufRead *.cpp  " default c++ formatting
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set fileformat=unix |
-    \ set cindent |
-    \ set autoindent
-
-
-au BufNewFile,BufRead *.h    " default c++ header file settings
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+"au BufNewFile,BufRead *.py   " set defualt PEP8 formatting
+"    \ set tabstop=4 |
+"    \ set softtabstop=4 |
+"    \ set shiftwidth=4 |
+"    \ set textwidth=79 |
+"    \ set expandtab |
+"    \ set autoindent |
+"    \ set fileformat=unix 
+"
+"au BufNewFile,BufRead *.tex  " default latex formatting
+"    \ set tabstop=4 |
+"    \ set softtabstop=4 |
+"    \ set shiftwidth=4 |
+"    \ set textwidth=79 |
+"    \ set expandtab |
+"    \ set autoindent |
+"    \ set fileformat=unix 
+"
+"au BufNewFile,BufRead *.cpp  " default c++ formatting
+"    \ set tabstop=4 |
+"    \ set softtabstop=4 |
+"    \ set shiftwidth=4 |
+"    \ set textwidth=79 |
+"    \ set expandtab |
+"    \ set fileformat=unix |
+"    \ set cindent |
+"    \ set autoindent
+"
+"
+"au BufNewFile,BufRead *.h    " default c++ header file settings
+"    \ set tabstop=4 |
+"    \ set softtabstop=4 |
+"    \ set shiftwidth=4 |
+"    \ set textwidth=79 |
+"    \ set expandtab |
+"    \ set autoindent |
+"    \ set fileformat=unix
+"
+"au BufNewFile,BufRead *.html   " default c++ header file settings
+"    \ set tabstop=2 |
+"    \ set softtabstop=2 |
+"    \ set shiftwidth=2 |
+"    \ set textwidth=79 |
+"    \ set expandtab |
+"    \ set autoindent |
+"    \ set fileformat=unix
 
 " ===================================================================================
 "                          Miscellaneous 
