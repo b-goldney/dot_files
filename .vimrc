@@ -88,6 +88,10 @@ inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
+
+" enable syntax highlighting for ejs files
+au BufNewFile,BufRead *.ejs set filetype=html
+
 "au BufNewFile,BufRead *.cpp  " default c++ formatting
 "    \ set tabstop=4 |
 "    \ set softtabstop=4 |
