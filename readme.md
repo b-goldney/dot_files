@@ -1,7 +1,7 @@
 - skeleton files (i.e. skeleton.*) 
   - saved here: /.vim/templates/skeletons/
-  - the skeleton files are symlinked in this .config directory
+  - symlinks are here: /Users/brandongoldney/.vim/after/ftplugin
 
-- cpp.vim and html.vim 
-  - saved in .config and used to update formatting. Including the formatting in .vimrc does not work becaue it is overriden by
+- *.vim 
+  - saved in .config/formatting and used to update formatting. Including the formatting in .vimrc does not work becaue it is overriden by
   plug-ins. 

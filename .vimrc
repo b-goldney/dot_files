@@ -80,24 +80,14 @@ colorscheme nord             " select color scheme
 " ===================================================================================
  filetype plugin indent on
 
-"au BufNewFile,BufRead *.py   " set defualt PEP8 formatting
-"    \ set tabstop=4 |
-"    \ set softtabstop=4 |
-"    \ set shiftwidth=4 |
-"    \ set textwidth=79 |
-"    \ set expandtab |
-"    \ set autoindent |
-"    \ set fileformat=unix 
-"
-"au BufNewFile,BufRead *.tex  " default latex formatting
-"    \ set tabstop=4 |
-"    \ set softtabstop=4 |
-"    \ set shiftwidth=4 |
-"    \ set textwidth=79 |
-"    \ set expandtab |
-"    \ set autoindent |
-"    \ set fileformat=unix 
-"
+" auto close brackets
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
 "au BufNewFile,BufRead *.cpp  " default c++ formatting
 "    \ set tabstop=4 |
 "    \ set softtabstop=4 |
@@ -108,17 +98,6 @@ colorscheme nord             " select color scheme
 "    \ set cindent |
 "    \ set autoindent
 "
-"
-"au BufNewFile,BufRead *.h    " default c++ header file settings
-"    \ set tabstop=4 |
-"    \ set softtabstop=4 |
-"    \ set shiftwidth=4 |
-"    \ set textwidth=79 |
-"    \ set expandtab |
-"    \ set autoindent |
-"    \ set fileformat=unix
-"
-
 " ===================================================================================
 "                          Miscellaneous 
 " ===================================================================================
