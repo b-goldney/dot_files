@@ -1,3 +1,4 @@
+# create directory and enter into newly created directory
 mkcd () {
   mkdir "$1"
   cd "$1"
