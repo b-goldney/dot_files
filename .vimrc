@@ -59,6 +59,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'mattn/emmet-vim' 
 Plug 'ap/vim-css-color'
 Plug 'arcticicestudio/nord-vim'
+"Plug 'vim-scripts/loremipsum'
+"Plug 'pangloss/vim-javascript'
 " Finish initialization of vim-plug
 call plug#end()
 
@@ -116,14 +118,6 @@ colorscheme nord             " select color scheme
 "    \ set autoindent |
 "    \ set fileformat=unix
 "
-"au BufNewFile,BufRead *.html   " default c++ header file settings
-"    \ set tabstop=2 |
-"    \ set softtabstop=2 |
-"    \ set shiftwidth=2 |
-"    \ set textwidth=79 |
-"    \ set expandtab |
-"    \ set autoindent |
-"    \ set fileformat=unix
 
 " ===================================================================================
 "                          Miscellaneous 

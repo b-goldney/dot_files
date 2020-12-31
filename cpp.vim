@@ -1,1 +1,2 @@
-/Users/brandongoldney/.vim/after/ftplugin/cpp.vim
+setlocal shiftwidth=4
+setlocal softtabstop=4
