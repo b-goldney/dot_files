@@ -1,5 +1,5 @@
 - skeleton files (i.e. skeleton.*) 
-  - saved here: /.vim/templates/skeleton.cpp
+  - saved here: /.vim/templates/skeletons/
   - the skeleton files are symlinked in this .config directory
 
 - cpp.vim and html.vim 
