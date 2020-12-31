@@ -7,7 +7,8 @@
  - original files are saved here: ~/.config/formatting
  - copies (via symlink) are saved here: ~/.vim/after/ftplugin
 
-**skeletons**  
- - saved here: /.vim/templates/skeletons/
- - symlinks are here: /Users/brandongoldney/.vim/after/ftplugin
+**skeletons**
+ - basic skeleton code that is inserted when a new file is created is created
+ - original files are saved here: ~/.vim/templates/skeletons/
+ - copies (via symlink) are saved here: ~/.vim/after/ftplugin
 
