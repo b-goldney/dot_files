@@ -11,6 +11,8 @@ set textwidth=80 		    " make it obvious where 80 characters is
 set colorcolumn=+1                  " (continued from above)
 set hlsearch 			    " highlight search (highlight matches)
 set encoding=utf-8
+let g:airline_powerline_fonts = 1
+
 nnoremap <CR> :noh<CR><CR> 	    " clear search highlighting by hitting return
 
 " let is for assigning a value to a variable
@@ -62,6 +64,7 @@ Plug 'ap/vim-css-color'
 "Plug 'vim-scripts/loremipsum'
 "Plug 'pangloss/vim-javascript'
 Plug 'sonph/onehalf', { 'rtp': 'vim' } " vim theme
+Plug 'tpope/vim-fugitive' " Used by airline to show git branch
 call plug#end()
 
 " ===================================================================================
@@ -71,9 +74,36 @@ syntax on
 set t_Co=256
 set cursorline
 colorscheme onehalfdark
-"let g:airline_theme='onehalflight'
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#branch#empty_message = 'no branch'
+let g:airline#extensions#branch#enabled = 1
+
+let g:airline_theme='onehalflight'
+" the separator used on the left side
+let g:airline_left_sep=''
+" the separator used on the right side 
+let g:airline_right_sep=''
+
+" air-line
 let g:airline_powerline_fonts = 1
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 " ===================================================================================
 "                          File Formatting
 " ===================================================================================
