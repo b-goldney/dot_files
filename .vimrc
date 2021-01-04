@@ -1,20 +1,21 @@
 " ===================================================================================
-"                           Vim Core Configuration 
+"                           Vim Core Configuration
 " ===================================================================================
 " set is for setting options
-set guifont=Menlo:h14               " for the GUI version of Vim
+"set guifont=Menlo:h14               " for the GUI version of Vim
 set number                          " absolute line number
 set relativenumber                  " set relative line numbers
 set nowrap                          " turn off word wrap
 set autochdir                       " always change to the current file's directory
-set textwidth=80 		    " make it obvious where 80 characters is 
+set textwidth=80 		    " make it obvious where 80 characters is
 set colorcolumn=+1                  " (continued from above)
 set hlsearch 			    " highlight search (highlight matches)
+set encoding=utf-8
 nnoremap <CR> :noh<CR><CR> 	    " clear search highlighting by hitting return
 
 " let is for assigning a value to a variable
 
-" gitgutter: shows a git diff in the sign column. It shows which lines have been added, 
+" gitgutter: shows a git diff in the sign column. It shows which lines have been added,
 " modified, or removed
 let g:gitgutter_enabled=1 " Always enable git gutter
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
@@ -22,9 +23,8 @@ highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
 highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 
 " vimtex: is a modern Vim and neovim filetype and syntax plugin for LaTeX files.
-let g:vimtex_view_method= 'zathura' 
-let g:tex_flavor = 'latex'           
-
+let g:vimtex_view_method= 'zathura'
+let g:tex_flavor = 'latex'
 "Debugger options
 let g:termdebug_popup = 0
 let g:termdebug_wide = 163
@@ -52,31 +52,30 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
-Plug 'robbyrussell/oh-my-zsh'
+"Plug 'robbyrussell/oh-my-zsh'
 Plug 'vim-airline/vim-airline'
 "Plug 'dense-analysis/ale'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mattn/emmet-vim' 
+Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
-Plug 'arcticicestudio/nord-vim'
+"Plug 'arcticicestudio/nord-vim'
 "Plug 'vim-scripts/loremipsum'
 "Plug 'pangloss/vim-javascript'
-" Finish initialization of vim-plug
+Plug 'sonph/onehalf', { 'rtp': 'vim' } " vim theme
 call plug#end()
 
+" ===================================================================================
+"                         Themes and Color Formatting
+" ===================================================================================
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+"let g:airline_theme='onehalflight'
+let g:airline_powerline_fonts = 1
 
 " ===================================================================================
-"                         Themes and Color Formatting 
-" ===================================================================================
-set termguicolors
-let g:nord_italic = 1  	     " enable italics
-let g:nord_underline = 1     " enable underlining
-colorscheme nord             " select color scheme
-
-" let g:ZSH_THEME='agnoster'   " update theme for oh-my-zsh
-
-" ===================================================================================
-"                          File Formatting 
+"                          File Formatting
 " ===================================================================================
  filetype plugin indent on
 
@@ -103,7 +102,7 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "    \ set autoindent
 "
 " ===================================================================================
-"                          Miscellaneous 
+"                          Miscellaneous
 " ===================================================================================
 " Execute python file with F9 instead of typing \":w !python\"
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -112,7 +111,7 @@ autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellesca
 " Switch between tabs using ctrl+tab (to go right) and ctrl+shift+tab (to go
 " left). Same as a browser.
 if has("gui_macvim")
-  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to 
+  " Press Ctrl-Tab to switch between open tabs (like browser tabs) to
   " the right side. Ctrl-Shift-Tab goes the other way.
   noremap <C-Tab> :tabnext<CR>
   noremap <C-S-Tab> :tabprev<CR>
