@@ -11,7 +11,7 @@ set textwidth=80 		    " make it obvious where 80 characters is
 set colorcolumn=+1                  " (continued from above)
 set hlsearch 			    " highlight search (highlight matches)
 set encoding=utf-8
-let g:airline_powerline_fonts = 1
+
 
 nnoremap <CR> :noh<CR><CR> 	    " clear search highlighting by hitting return
 
@@ -60,50 +60,28 @@ Plug 'vim-airline/vim-airline'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
-"Plug 'arcticicestudio/nord-vim'
-"Plug 'vim-scripts/loremipsum'
-"Plug 'pangloss/vim-javascript'
 Plug 'sonph/onehalf', { 'rtp': 'vim' } " vim theme
 Plug 'tpope/vim-fugitive' " Used by airline to show git branch
+Plug 'powerline/powerline' " Used by airline to show git branch symbol
 call plug#end()
 
 " ===================================================================================
 "                         Themes and Color Formatting
 " ===================================================================================
+" Theme and Colors
 syntax on
 set t_Co=256
-set cursorline
 colorscheme onehalfdark
-let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#branch#empty_message = 'no branch'
+let g:airline_theme='onehalfdark'
+
+" Airline and Powerline Settings
 let g:airline#extensions#branch#enabled = 1
-
-let g:airline_theme='onehalflight'
-" the separator used on the left side
-let g:airline_left_sep=''
-" the separator used on the right side 
-let g:airline_right_sep=''
-
-" air-line
 let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_stl_path_style = 'short'
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
 " ===================================================================================
 "                          File Formatting
 " ===================================================================================
