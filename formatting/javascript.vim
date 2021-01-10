@@ -1,6 +1,7 @@
-set cindent |
-set smartindent |
-set shiftwidth=4 |
-set softtabstop=4 |
-set tabstop=4 |
-set softtabstop=4 
+setlocal cindent
+setlocal smartindent
+setlocal shiftwidth=4
+setlocal softtabstop=4
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal expandtab

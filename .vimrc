@@ -2,6 +2,8 @@
 "                           Vim Core Configuration
 " ===================================================================================
 " set is for setting options
+" let is for assigning a value to a variable
+
 "set guifont=Menlo:h14               " for the GUI version of Vim
 set number                          " absolute line number
 set relativenumber                  " set relative line numbers
@@ -12,34 +14,48 @@ set colorcolumn=+1                  " (continued from above)
 set hlsearch 			    " highlight search (highlight matches)
 set encoding=utf-8
 
-
 nnoremap <CR> :noh<CR><CR> 	    " clear search highlighting by hitting return
 
-" let is for assigning a value to a variable
+" netrw 
+"vim's native version of NERDTree
+let g:netrw_banner = 0 		" remove the banner
+let g:netrw_liststyle = 3       " change to list style
+let g:netrw_browse_split = 4    " open files in new tab
+let g:netrw_altv = 1 		" vertical split 
+let g:netrw_winsize = 25 	" width of window
+let g:netrw_liststyle = 3 	" tree style listing (removes the vertical lines)
 
-" gitgutter: shows a git diff in the sign column. It shows which lines have been added,
-" modified, or removed
+augroup ProjectDrawer 		" open netrw on startup
+  autocmd!
+  autocmd VimEnter * :Vexplore
+ augroup END
+
+" gitgutter
+" shows which lines have been added,modified, or removed
 let g:gitgutter_enabled=1 " Always enable git gutter
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
 highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
 highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 
-" vimtex: is a modern Vim and neovim filetype and syntax plugin for LaTeX files.
+" vimtex
+" a modern Vim and neovim filetype and syntax plugin for LaTeX files.
 let g:vimtex_view_method= 'zathura'
 let g:tex_flavor = 'latex'
+
+" NERDTree settings
+"let NERDTreeShowHidden=1             " Show hidden files in NERD Tree
+" always open NERDTree in the documents folder
+" autocmd VimEnter * NERDTree /Users/brandongoldney/Documents/
+
 "Debugger options
 let g:termdebug_popup = 0
 let g:termdebug_wide = 163
-
-let NERDTreeShowHidden=1             " Show hidden files in NERD Tree
-" always open NERDTree in the documents folder
-autocmd VimEnter * NERDTree /Users/brandongoldney/Documents/
 
 " enable autocomplete for html
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 set omnifunc=syntaxcomplete#Complete
 
-" open all .cpp files with the template from .vim/templates
+" open all .cpp and .html files with the templates from .vim/templates
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
 autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
 
