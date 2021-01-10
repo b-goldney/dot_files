@@ -69,14 +69,14 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " live preview,for Latex 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 "Plug 'robbyrussell/oh-my-zsh'
 Plug 'vim-airline/vim-airline'
 "Plug 'dense-analysis/ale'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
-Plug 'sonph/onehalf', { 'rtp': 'vim' } " vim theme
+Plug 'sonph/onehalf', { 'rtp': 'vim' } " vim theme (onehalfdark and onehalflight)
 Plug 'tpope/vim-fugitive' " Used by airline to show git branch
 Plug 'powerline/powerline' " Used by airline to show git branch symbol
 call plug#end()
