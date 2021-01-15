@@ -18,17 +18,17 @@ nnoremap <CR> :noh<CR><CR> 	    " clear search highlighting by hitting return
 
 " netrw 
 "vim's native version of NERDTree
-let g:netrw_banner = 0 		" remove the banner
-let g:netrw_liststyle = 3       " change to list style
-let g:netrw_browse_split = 4    " open files in new tab
-let g:netrw_altv = 1 		" vertical split 
-let g:netrw_winsize = 25 	" width of window
-let g:netrw_liststyle = 3 	" tree style listing (removes the vertical lines)
-
-augroup ProjectDrawer 		" open netrw on startup
-  autocmd!
-  autocmd VimEnter * :Vexplore
- augroup END
+" let g:netrw_banner = 0 		" remove the banner
+" let g:netrw_liststyle = 3       " change to list style
+" let g:netrw_browse_split = 4    " open files in new tab
+" let g:netrw_altv = 1 		" vertical split 
+" let g:netrw_winsize = 25 	" width of window
+" let g:netrw_liststyle = 3 	" tree style listing (removes the vertical lines)
+" 
+" augroup ProjectDrawer 		" open netrw on startup
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+"  augroup END
 
 " gitgutter
 " shows which lines have been added,modified, or removed
@@ -43,9 +43,10 @@ let g:vimtex_view_method= 'zathura'
 let g:tex_flavor = 'latex'
 
 " NERDTree settings
-"let NERDTreeShowHidden=1             " Show hidden files in NERD Tree
+let NERDTreeShowHidden=1             " Show hidden files in NERD Tree
 " always open NERDTree in the documents folder
-" autocmd VimEnter * NERDTree /Users/brandongoldney/Documents/
+autocmd VimEnter * NERDTree /Users/brandongoldney/Documents/
+
 
 "Debugger options
 let g:termdebug_popup = 0
@@ -69,7 +70,7 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " live preview,for Latex 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter'
-"Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 "Plug 'robbyrussell/oh-my-zsh'
 Plug 'vim-airline/vim-airline'
 "Plug 'dense-analysis/ale'
@@ -98,6 +99,11 @@ set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_stl_path_style = 'short'
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
+" Used to hide the slashes ("/") after each folder in NERDTree
+" Colors are listed here: 
+" https://github.com/sonph/onehalf/blob/89923117bc49dd1e0c6b7fdd34bc6dc4d425fe1f/vim/colors/onehalfdark.vim#L32
+" This line must be after the Theme loads
+hi NERDTreeDirSlash guifg=#282c34 ctermfg=236
 " ===================================================================================
 "                          File Formatting
 " ===================================================================================
