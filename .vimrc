@@ -13,6 +13,11 @@ set textwidth=80 		    " make it obvious where 80 characters is
 set colorcolumn=+1                  " (continued from above)
 set hlsearch 			    " highlight search (highlight matches)
 set encoding=utf-8
+let g:loaded_matchparen=0
+let g:user_emmet_leader_key=','     " set Emmet Vim leader key
+highlight MatchParen cterm=bold ctermfg=cyan
+let mapleader = ","
+
 
 nnoremap <CR> :noh<CR><CR> 	    " clear search highlighting by hitting return
 
@@ -69,19 +74,28 @@ Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " live preview,for Latex files
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'jremmen/vim-ripgrep'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 "Plug 'robbyrussell/oh-my-zsh'
 Plug 'vim-airline/vim-airline'
 "Plug 'dense-analysis/ale'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'eslint/eslint'
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 Plug 'sonph/onehalf', { 'rtp': 'vim' } " vim theme (onehalfdark and onehalflight)
 Plug 'tpope/vim-fugitive' " Used by airline to show git branch
 Plug 'powerline/powerline' " Used by airline to show git branch symbol
+Plug 'Yggdroot/indentLine', {' for' : 'html'}
+Plug 'gregsexton/MatchTag'
 call plug#end()
 
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
 " ===================================================================================
 "                         Themes and Color Formatting
 " ===================================================================================
@@ -120,6 +134,7 @@ inoremap {;<CR> {<CR>};<ESC>O
 
 " enable syntax highlighting for ejs files
 au BufNewFile,BufRead *.ejs set filetype=html
+autocmd Filetype css setlocal tabstop=4
 
 "au BufNewFile,BufRead *.cpp  " default c++ formatting
 "    \ set tabstop=4 |
@@ -130,10 +145,18 @@ au BufNewFile,BufRead *.ejs set filetype=html
 "    \ set fileformat=unix |
 "    \ set cindent |
 "    \ set autoindent
-"
 " ===================================================================================
 "                          Miscellaneous
 " ===================================================================================
+" CoC Color Settings - this has to be after the OneHalfDark install
+hi CocErrorSign guibg=#282828 guifg=#fb4934
+hi CocWarningSign guibg=#282828 guifg=#fabd2f
+hi CocInfoSign guifg=#83a598
+hi CocHintSign guifg=#504945
+hi CocErrorFloat guifg=#fb4934
+hi CocWarningFloat guifg=#fabd2f
+hi CocInfoFloat guifg=#83a598
+hi CocHintFloat guifg=#d3869b
 " Execute python file with F9 instead of typing \":w !python\"
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
