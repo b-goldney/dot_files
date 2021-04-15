@@ -71,7 +71,7 @@ autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
 " Plug 'foo/bar' expands to Plug 'https://github.com/foo/bar.git' as documented
 call plug#begin('~/.vim/plugged/') " vim-plug
 Plug 'lervag/vimtex'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " live preview,for Latex files
+"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " live preview,for Latex files
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jremmen/vim-ripgrep'

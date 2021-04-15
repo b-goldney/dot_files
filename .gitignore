@@ -1,0 +1,8 @@
+.ccls-cache/
+coc/
+configstore/
+filezilla/
+nvim/
+spotify-tui/
+spotifyd/
+*.swp

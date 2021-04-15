@@ -5,7 +5,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/brandongoldney/.oh-my-zsh"
 
-
 # Creating custom functions.  All functions are placed in the .zfunc folder.
 # Each function needs to have it's own file.
 fpath=( ~/.config/.zfunc "${fpath[@]}" )
