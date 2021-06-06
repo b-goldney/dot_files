@@ -2,8 +2,10 @@ setlocal tabstop=2
 setlocal softtabstop=2
 setlocal shiftwidth=2
 setlocal textwidth=79
+setlocal nocindent
+setlocal nosmartindent
+setlocal indentexpr=
 setlocal expandtab
-setlocal smartindent
 setlocal autoindent
 setlocal fileformat=unix
 setlocal textwidth=120

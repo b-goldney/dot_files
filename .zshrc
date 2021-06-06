@@ -4,7 +4,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/brandongoldney/.oh-my-zsh"
-
 # Creating custom functions.  All functions are placed in the .zfunc folder.
 # Each function needs to have it's own file.
 fpath=( ~/.config/.zfunc "${fpath[@]}" )
@@ -36,10 +35,6 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
 
-# I primarily added this so I can use the conda command from the terminal
-# There's probably a cleaner way to do this than importing the whole
-# bash_profile
-# source ~/.config/.bash_profile
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

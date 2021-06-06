@@ -12,3 +12,8 @@
  - original files are saved here: ~/.vim/templates/skeletons/
  - copies (via symlink) are saved here: ~/.vim/after/ftplugin
 
+misc
+ - to format .ejs files as css files but with html syntax highlighting do the following:
+  1) go to /Applications/MacVim.app/contents/Resources/vim/runtime/html.vim
+  change "indentexpr" to "indentexpr=GetCSSIndent"
+  2) inside .vimrc set the following:  au BufNewFile,BufRead *.ejs set syntax=html 

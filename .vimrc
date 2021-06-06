@@ -15,25 +15,11 @@ set hlsearch 			    " highlight search (highlight matches)
 set encoding=utf-8
 let g:loaded_matchparen=0
 let g:user_emmet_leader_key=','     " set Emmet Vim leader key
-highlight MatchParen cterm=bold ctermfg=cyan
+hi MatchParen cterm=bold ctermfg=cyan
 let mapleader = ","
-
+set encoding=utf-8
 
 nnoremap <CR> :noh<CR><CR> 	    " clear search highlighting by hitting return
-
-" netrw 
-"vim's native version of NERDTree
-" let g:netrw_banner = 0 		" remove the banner
-" let g:netrw_liststyle = 3       " change to list style
-" let g:netrw_browse_split = 4    " open files in new tab
-" let g:netrw_altv = 1 		" vertical split 
-" let g:netrw_winsize = 25 	" width of window
-" let g:netrw_liststyle = 3 	" tree style listing (removes the vertical lines)
-" 
-" augroup ProjectDrawer 		" open netrw on startup
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-"  augroup END
 
 " gitgutter
 " shows which lines have been added,modified, or removed
@@ -70,27 +56,31 @@ autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
 " ===================================================================================
 " Plug 'foo/bar' expands to Plug 'https://github.com/foo/bar.git' as documented
 call plug#begin('~/.vim/plugged/') " vim-plug
-Plug 'lervag/vimtex'
-"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " live preview,for Latex files
+Plug 'psf/black', { 'branch': 'stable' } "Black python formatting
+" JS, CSS, HTML
+Plug 'pangloss/vim-javascript' " This isn't loading
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'eslint/eslint'
+Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
+Plug 'Yggdroot/indentLine', {' for' : 'html'}
+Plug 'gregsexton/MatchTag'
+" Vim Functionality: fuzzy finder, ripgrep, gitgutter
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'jremmen/vim-ripgrep'
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
-"Plug 'robbyrussell/oh-my-zsh'
-Plug 'vim-airline/vim-airline'
-"Plug 'dense-analysis/ale'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'eslint/eslint'
-Plug 'mattn/emmet-vim'
-Plug 'ap/vim-css-color'
-Plug 'sonph/onehalf', { 'rtp': 'vim' } " vim theme (onehalfdark and onehalflight)
 Plug 'tpope/vim-fugitive' " Used by airline to show git branch
 Plug 'powerline/powerline' " Used by airline to show git branch symbol
-Plug 'Yggdroot/indentLine', {' for' : 'html'}
-Plug 'gregsexton/MatchTag'
+" Vim themes/display
+Plug 'sonph/onehalf', { 'rtp': 'vim' } " vim theme (onehalfdark and onehalflight)
+Plug 'vim-airline/vim-airline'
+" Misc
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'lervag/vimtex'
+"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' } " live preview,for Latex files
 call plug#end()
 
 let g:coc_global_extensions = [
@@ -112,16 +102,25 @@ let g:Powerline_symbols = 'fancy'
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_stl_path_style = 'short'
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-
+let g:airline_section_x=''
+let g:airline_section_y=''
+let g:airline_section_z=''
+let g:airline#extensions#wordcount#enabled = 1
+let g:airline_skip_empty_sections = 1
 " Used to hide the slashes ("/") after each folder in NERDTree
-" Colors are listed here: 
+" Colors are listed here:
 " https://github.com/sonph/onehalf/blob/89923117bc49dd1e0c6b7fdd34bc6dc4d425fe1f/vim/colors/onehalfdark.vim#L32
 " This line must be after the Theme loads
 hi NERDTreeDirSlash guifg=#282c34 ctermfg=236
+
+hi Pmenu guibg=pink guifg=#005fff
+hi PmenuSel guibg=#005fff
+hi PmenuThumb guibg=#005fff
+
 " ===================================================================================
 "                          File Formatting
 " ===================================================================================
- filetype plugin indent on
+filetype plugin indent on
 
 " auto close brackets
 inoremap " ""<left>
@@ -133,18 +132,9 @@ inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
 
 " enable syntax highlighting for ejs files
-au BufNewFile,BufRead *.ejs set filetype=html
-autocmd Filetype css setlocal tabstop=4
-
-"au BufNewFile,BufRead *.cpp  " default c++ formatting
-"    \ set tabstop=4 |
-"    \ set softtabstop=4 |
-"    \ set shiftwidth=4 |
-"    \ set textwidth=79 |
-"    \ set expandtab |
-"    \ set fileformat=unix |
-"    \ set cindent |
-"    \ set autoindent
+au BufNewFile,BufRead *.ejs set syntax=html 
+autocmd Filetype css setlocal tabstop=2
+autocmd Filetype html setlocal tabstop=2
 " ===================================================================================
 "                          Miscellaneous
 " ===================================================================================
@@ -200,3 +190,4 @@ noremap <D-9> :tabn 9<CR>
 noremap <D-0> :tablast<CR>  " Command-0 goes to the last tab
 
 endif
+
